@@ -79,14 +79,14 @@ class TestUserAddToCartFromProductPage:
         page.register_new_user(email, password)
         page.should_be_authorized_user()
 
-    def test_user_cant_see_success_message(self, browser):
-        prod_page = ProductPage(browser, PRODUCT_LINK)
+    def test_user_cant_see_success_message(self):
+        prod_page = ProductPage(self.browser, PRODUCT_LINK)
         prod_page.open()
         prod_page.ensure_success_message_is_not_present()
 
     @pytest.mark.need_review
-    def test_user_can_add_product_to_cart(self, browser):
-        prod_page = ProductPage(browser, PRODUCT_LINK)
+    def test_user_can_add_product_to_cart(self):
+        prod_page = ProductPage(self.browser, PRODUCT_LINK)
         prod_page.open()
         prod_page.add_product_to_basket()
         prod_page.solve_quiz_and_get_code()
