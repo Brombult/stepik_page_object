@@ -9,6 +9,7 @@ from pages.basket_page import BasketPage
 PRODUCT_LINK = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
 
 
+@pytest.mark.need_review
 def test_guest_can_add_product_to_cart(browser):
     prod_page = ProductPage(browser, PRODUCT_LINK)
     prod_page.open()
@@ -48,12 +49,14 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_link()
 
 
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, PRODUCT_LINK)
     page.open()
     page.go_to_login_page()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_cart_opened_from_product_page(browser):
     page = ProductPage(browser, PRODUCT_LINK)
     page.open()
@@ -81,6 +84,7 @@ class TestUserAddToCartFromProductPage:
         prod_page.open()
         prod_page.ensure_success_message_is_not_present()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_cart(self, browser):
         prod_page = ProductPage(browser, PRODUCT_LINK)
         prod_page.open()
