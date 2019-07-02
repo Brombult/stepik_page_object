@@ -12,6 +12,14 @@ class BasketLocators:
     BASKET_ITEMS = (By.CLASS_NAME, 'basket-items')
 
 
+class LoginPageLocators:
+    LOGIN_USERNAME = (By.NAME, "login-username")
+    LOGIN_PASSWORD = (By.NAME, "login-password")
+    REGISTER_USERNAME = (By.NAME, "registration-email")
+    REGISTER_PASSWORD = (By.NAME, "registration-password1")
+    REGISTER_CONFIRM_PASSWORD = (By.NAME, "registration-password2")
+
+
 class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
     PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main > h1')
