@@ -19,3 +19,11 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REGISTER_USERNAME), 'No register username'
         assert self.is_element_present(*LoginPageLocators.REGISTER_PASSWORD), 'No register password'
         assert self.is_element_present(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD), 'No register confirm password'
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REGISTER_USERNAME).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON).click()
+
+
