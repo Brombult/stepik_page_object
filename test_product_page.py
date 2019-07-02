@@ -1,6 +1,7 @@
 import pytest
 
 from pages.product_page import ProductPage
+from pages.basket_page import BasketPage
 
 PRODUCT_LINK = 'http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear'
 
@@ -48,3 +49,12 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, PRODUCT_LINK)
     page.open()
     page.go_to_login_page()
+
+
+def test_guest_cant_see_product_in_cart_opened_from_product_page(browser):
+    page = ProductPage(browser, PRODUCT_LINK)
+    page.open()
+    page.go_to_basket()
+    basket = BasketPage(browser, browser.current_url)
+    basket.ensure_basket_is_empty()
+    basket.ensure_no_products_in_basket()
